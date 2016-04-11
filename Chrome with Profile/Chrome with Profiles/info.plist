@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>co.uk.interestingdevs.chrprof</string>
+	<key>connections</key>
+	<dict>
+		<key>2D577EBB-95F1-4421-AA46-8C99B62E91E9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>79CC46FA-CE80-42AC-8F51-6F4CBF35092A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>79CC46FA-CE80-42AC-8F51-6F4CBF35092A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5D2A8850-26CC-4B0B-B7C1-B0850F3B7288</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Kevin Blair</string>
+	<key>description</key>
+	<string>Launch Google Chrome with a defined profile</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Chrome with Profiles</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Chrome</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>5D2A8850-26CC-4B0B-B7C1-B0850F3B7288</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>./launchWithProfile {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>79CC46FA-CE80-42AC-8F51-6F4CBF35092A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>chr</string>
+				<key>runningsubtext</key>
+				<string>Default</string>
+				<key>script</key>
+				<string>./filterProfiles {query}</string>
+				<key>subtext</key>
+				<string>With profile</string>
+				<key>title</key>
+				<string>Open Chrome</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2D577EBB-95F1-4421-AA46-8C99B62E91E9</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>2D577EBB-95F1-4421-AA46-8C99B62E91E9</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>5D2A8850-26CC-4B0B-B7C1-B0850F3B7288</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>79CC46FA-CE80-42AC-8F51-6F4CBF35092A</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

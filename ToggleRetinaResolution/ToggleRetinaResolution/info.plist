@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>co.uk.interestingdevs.mpbressw</string>
+	<key>connections</key>
+	<dict>
+		<key>1A12E222-6BF2-4ED8-9C53-3308AD740BF2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3CAEAD7E-F1A5-4D6F-AEB0-61530B291E0C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Kevin Blair</string>
+	<key>description</key>
+	<string>Switch back and forth between More Space and Best for Retina</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>ToggleRetinaResolution</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>tres</string>
+				<key>subtext</key>
+				<string>Toggle between Max and Best for Retinal</string>
+				<key>text</key>
+				<string>Toggle Retina Display Resolution</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>1A12E222-6BF2-4ED8-9C53-3308AD740BF2</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on isVersionAGreaterThanOrEqualToVersionB(versionA, versionB)	set delimiters to AppleScript's text item delimiters	set AppleScript's text item delimiters to "."	set majorVersionA to text item 2 of versionA	set majorVersionB to text item 2 of versionB	set AppleScript's text item delimiters to delimiters	return (majorVersionA as number) ≥ (majorVersionB as number)end isVersionAGreaterThanOrEqualToVersionBon alfred_script(q)	tell application "System Preferences"		reveal anchor "displaysDisplayTab" of pane "com.apple.preference.displays"	end tell		set systemVersion to system version of (system info)		if my isVersionAGreaterThanOrEqualToVersionB(systemVersion, "10.9") then		set pWindowName to "Built-in Retina Display"	else		set pWindowName to "Color LCD"	end if		tell application "System Events" to tell process "System Preferences" to tell window pWindowName		click radio button "display" of tab group 1		--Ensures Resolution preference is "Scaled" to select resolutions				if my isVersionAGreaterThanOrEqualToVersionB(systemVersion, "10.9") then			click radio button "Scaled" of radio group 1 of tab group 1		else			click radio button "Scaled" of tab group 1		end if						tell radio group 1 of group 1 of tab group 1			set isRetinaOptimized to get value of radio button 3		end tell		if isRetinaOptimized then			click radio button 5 of radio group 1 of group 1 of tab group 1		else			click radio button 3 of radio group 1 of group 1 of tab group 1		end if	end tell	quit application "System Preferences"end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>3CAEAD7E-F1A5-4D6F-AEB0-61530B291E0C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Switch a Retina MBP between Best for Retina, and More Space Resolutions. If you want the resolution just one up from Best for Retina then change the click radio button 5 to click radio button 4
+
+
+Tip o' the hat to MacRumours forum member zoomcityzoom http://forums.macrumors.com/member.php?u=796318 for the exact scripting to manipulate the image resolution radio buttons</string>
+	<key>uidata</key>
+	<dict>
+		<key>1A12E222-6BF2-4ED8-9C53-3308AD740BF2</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>3CAEAD7E-F1A5-4D6F-AEB0-61530B291E0C</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

@@ -1,0 +1,9 @@
+#name of Chrome profile to be used
+profile="Default"
+#extra detail about this script to be displayed in Alfred List
+extraDetail="Default Profile"
+#extra switches to supply to chrome command eg. -incognito
+cmdExtra=""
+#shell commands that should be also be executed - set volume, change network location etc..
+
+

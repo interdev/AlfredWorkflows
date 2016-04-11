@@ -1,0 +1,12 @@
+#!/bin/bash
+profile="Default"
+extraDetail=""
+cmdExtra=""
+
+if [ -f ~/ChromeProfileControl/$1 ]; then
+  . ~/ChromeProfileControl/$1
+fi
+
+open -a Google\ Chrome --new --args --profile-directory="$profile" $cmdExtra
+
+echo "$1 - $extraDetail"
